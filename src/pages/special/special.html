@@ -13,5 +13,15 @@
   <h5>Você pode começar apertando o botão 'Criar' da direita, para começar uma nova nota.</h5>
   <h5>Com o botão do meio, você pode editar a sua nota.</h5>
   <h5>Use o botão da esquerda para apagar uma ou mais notas que você não queira mais.</h5>
+  
+  <ion-fab right bottom>
+    <button ion-fab color="primary" [disabled] = "true"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+  <ion-fab left bottom>
+    <button ion-fab color="primary" [disabled] = "true"><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
+  <ion-fab center bottom>
+    <button ion-fab color="primary" [disabled] = "true"><ion-icon name="md-create"></ion-icon></button>
+  </ion-fab>
 </ion-content>
 
