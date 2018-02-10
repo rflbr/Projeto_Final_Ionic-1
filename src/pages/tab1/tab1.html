@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="color1">
+    <ion-buttons start>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-fab center top>
+      <button ion-button color="primary" (click)="logout()">Logout</button>
+    </ion-fab>
+    <ion-title>Notas</ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="body" padding text-center class="vertical-align-content" [hidden]="todos && todos.length > 0">
+  
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col class="readjust">
+        Clique no + para criar um item.
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-content padding [hidden]="!todos || todos.length <= 0">
+  <ion-item *ngFor="let todo of todos">
+    <ion-label [ngClass]="{stricken:todo.done}">{{ todo.name }}</ion-label>
+    <ion-checkbox color="dark" [(ngModel)]="todo.done" (click)="updateItemState($event, todo)"></ion-checkbox>
+  </ion-item>
+</ion-content>
+<ion-footer>
+
+<ion-fab right bottom>
+  <button ion-fab color="primary" (click)="showInputAlert()"><ion-icon name="add"></ion-icon></button>
+</ion-fab>
+<ion-fab left bottom>
+  <button ion-fab color="primary" (click)="deleteAction()" [disabled]="!canDelete()"><ion-icon name="close"></ion-icon></button>
+</ion-fab>
+<ion-fab center bottom>
+  <button ion-fab color="primary" (click)="showEditAlert()" [disabled]="!canEdit()" ><ion-icon name="md-create"></ion-icon></button>
+</ion-fab>
+
+</ion-footer>
